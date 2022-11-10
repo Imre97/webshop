@@ -1,0 +1,102 @@
+@use '../../scss/' as *;
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    position: fixed;
+    top: 15vh;
+    left: 25%;
+    width: 50%;
+    background-color: $white;
+    padding: 1rem;
+    border-radius: $border-radius;
+    z-index: 30;
+    animation: slide-down 300ms ease-out forwards;
+    opacity: 0;
+    visibility: hidden;
+
+
+    &-form {
+        margin: 1rem 0;
+        height: 23rem;
+        overflow: auto;
+
+        .control {
+            margin-bottom: 0.5rem;
+
+            label {
+                font-weight: bold;
+                margin-bottom: 0.25rem;
+                display: block;
+
+            }
+
+            input {
+                font: inherit;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width: 20rem;
+                max-width: 100%;
+            }
+        }
+
+        .invalid {
+            label {
+                color: #ca3e51;
+            }
+
+            input {
+                border-color: #aa0b20;
+                background-color: #ffeff1;
+            }
+        }
+
+
+        .actions {
+            @include flex(unset, flex-end);
+            gap: 1rem;
+
+            @include mobile {
+                justify-content: flex-start;
+            }
+        }
+    }
+}
+
+@include tablet {
+    .modal {
+        width: 30rem;
+        left: calc(50% - 15rem);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.stop-scrolling {
+    overflow: hidden;
+}

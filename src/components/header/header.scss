@@ -1,0 +1,107 @@
+@use '../../scss/' as *;
+
+.header {
+    height: $header-height;
+    color: $white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    transition: height .3s ease, background-color .3s ease;
+
+    &.shrink {
+        height: $header-shrink-height;
+        background-color: $main-color;
+    }
+
+    &-wrap {
+        @include flex(center, space-between);
+
+        height: 100%;
+        padding: 0 2rem;
+
+        @include mobile {
+            justify-content: space-between;
+        }
+    }
+
+    &-nav {
+        @include flex(center, unset);
+
+        & > *~* {
+            margin-left: 2rem;
+        }
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity .3s ease;
+        }
+
+        @include tablet {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: $main-color;
+            opacity: 0;
+            visibility: hidden;
+
+
+            li:first-child {
+                margin-top: 4rem;
+            }
+
+
+            & > * {
+                margin-bottom: 2rem;
+                margin-left: 2rem;
+                width: 100%;
+            }
+        }
+
+        li {
+            font-weight: 700;
+            padding: 5px 0;
+            font-size: 1.2rem;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%);
+                width: 0;
+                transition: width 0.2s ease;
+                height: 2px;
+                background-color: #e19e84;
+            }
+
+            &:hover::after,
+            &.active::after {
+                width: 100%;
+            }
+        }
+
+        .admin-menu {
+            font-weight: 300;
+            color: #e3dc0d;
+        }
+    }
+
+    .mobile-menu__button {
+        display: none;
+        right: 2rem;
+        font-size: 3rem;
+        cursor: pointer;
+        z-index: 99;
+
+        @include tablet {
+            display: block;
+        }
+    }
+}

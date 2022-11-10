@@ -1,0 +1,33 @@
+@use '../../scss/' as *;
+
+.administration {
+    margin: 10rem auto 3rem auto;
+    background-color: $white;
+    padding: 2rem;
+    border-radius: $border-radius;
+    overflow-x: auto;
+
+    table {
+        margin: 0 auto;
+        min-width: 500px;
+        margin-top: 2rem;
+
+        th, td {
+            padding: .5rem;
+            text-align: center;
+        }
+
+        td > svg {
+            cursor: pointer;
+            color: $main-color;
+            font-size: 1.4rem;
+        }
+    }
+
+}
+
+
+table, tr, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
