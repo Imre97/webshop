@@ -9,9 +9,6 @@ const Cart = () => {
     const cartItems = useSelector(state => state.cart.items)
     const totalAmount = useSelector(state => state.cart.totalAmount)
 
-    useEffect(() => {
-        console.log(cartItems)
-    }, [cartItems])
 
     return (
         <div className='container cart-items'>
