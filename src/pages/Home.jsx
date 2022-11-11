@@ -9,8 +9,8 @@ const Home = () => {
     return (
         <div>
             <Hero/>
-            {loading && <h2>Loading...</h2>}
-            {!data && error && <h2>{error.message || 'Something went wrong!'}</h2>}
+            {loading && <h2 className="loading">Loading...</h2>}
+            {!data && error && <h2 className="error">{error.message || 'Something went wrong!'}</h2>}
             <div className="container">
                 <ItemGrid items={data} />
             </div>

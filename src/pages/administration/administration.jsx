@@ -14,6 +14,8 @@ const Administration = () => {
     const [products, setProducts] = useState()
     const [modal, setModal] = useState(false)
 
+
+
     const handleDeleteClick = (id) => {
         fetch(`https://fakestoreapi.com/products/${id}`, {
             method: "DELETE"

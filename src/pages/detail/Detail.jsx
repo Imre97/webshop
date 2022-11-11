@@ -22,8 +22,8 @@ const Detail = () => {
     
     return (
         <div className="container">
-            {loading && <h2>Loading...</h2>}
-            {!data && error && <h2>{error.message || 'Something went wrong!'}</h2>}
+            {loading && <h2 className="loading">Loading...</h2>}
+            {!data && error && <h2 className="error">{error.message || 'Something went wrong!'}</h2>}
             {!loading && data && <div className="item-detail section">
                 <img className="item-detail__image" src={data.image} alt={data.title}/>
                 <div className="item-detail__content">
