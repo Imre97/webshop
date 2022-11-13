@@ -63,7 +63,7 @@ const Administration = () => {
                     </table>
                 </div>}
             </div>
-            <Modal modal={modal} setModal={setModal} />
+            {modal && <Modal modal={modal} setModal={setModal} />}
         </>
     )
 }
