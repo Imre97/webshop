@@ -30,7 +30,7 @@ const ModalOverlay = props => {
     const categoryInputRef = useRef()
 
 
-    const isEmpty = value => value.trim().length == ''
+    const isEmpty = value => value.trim().length === 0
 
     const confirmHandler = (e) => {
         e.preventDefault()
